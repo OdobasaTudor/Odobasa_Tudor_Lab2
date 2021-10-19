@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Odobasa_Tudor_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="CanMinimize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="CanMinimize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Loaded="frmMain_Loaded">
     <Grid>
         <Label x:Name="lblTitle" Content="Doughnuts - Bake &amp; Sale" HorizontalAlignment="Left" Height="59" Margin="274,43,0,0" VerticalAlignment="Top" Width="304" FontSize="24" FontWeight="Bold"/>
         <GroupBox x:Name="gbRaised" Header="Raised" FontWeight="Bold" Margin="74,107,498,217">
@@ -29,7 +29,7 @@
         <GroupBox x:Name="gbSale" Header="Current Sale" FontWeight="Bold" Margin="82,242,104,27">
             <Canvas>
                 <Label x:Name="lblQuantity" Content="Quantity" Canvas.Left="21" Canvas.Top="11"/>
-                <TextBox x:Name="txtQuantity" Text="0" TextWrapping="Wrap" Width="51" Canvas.Left="85" Canvas.Top="17"/>
+                <TextBox x:Name="txtQuantity" Text="0" TextWrapping="Wrap" Width="51" Canvas.Left="85" Canvas.Top="17" KeyUp="txtQuantity_KeyUp"/>
                 <Label x:Name="lblPrice" Content="Price" Canvas.Left="310" Canvas.Top="13"/>
                 <TextBox x:Name="txtPrice" Text="0" TextWrapping="Wrap" Width="60" IsReadOnly="True" Canvas.Left="371" Canvas.Top="17"/>
                 <ListBox x:Name="lstSale" Height="51" Width="395" Canvas.Top="46" Canvas.Left="36"/>
@@ -42,18 +42,24 @@
                 <Button x:Name="btnCheckOut" Content="Checkout" Canvas.Left="492" Canvas.Top="112" Width="84"/>
             </Canvas>
         </GroupBox>
-        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="131" Margin="0,26,0,0">
+        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top"
+Width="131" Margin="0,26,0,0">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="_Doughnuts">
+                
                 <MenuItem Header="Make">
-                    <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                    <MenuItem Header="Raised" Click="MenuItem_Click">
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed"
+Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar"
+IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
                     <MenuItem Header="Filled"/>
                 </MenuItem>
+                <MenuItem x:Name="mnuStop" Header="Stop"
+Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
         </Menu>
     </Grid>
