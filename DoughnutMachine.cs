@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Threading
+using System.Windows.Threading;
 
 namespace Odobasa_Tudor_Lab2
 {
@@ -61,9 +61,9 @@ namespace Odobasa_Tudor_Lab2
             {
                 case DoughnutType.Glazed:Interval = 3;break;
                 case DoughnutType.Sugar: Interval = 2; break;
-                case DoughnutType.Lemon: Interval = 5; break;
-                case DoughnutType.Chocolate: Interval = 7; break;
-                case DoughnutType.Vanilla: Interval = 4; break;
+                case DoughnutType.Lemon: Interval = 3; break;
+                case DoughnutType.Chocolate: Interval = 2; break;
+                case DoughnutType.Vanilla: Interval = 3; break;
             }
             doughnutTimer.Start();
         }
